@@ -6,8 +6,8 @@ from scripts import index
 directory_list = os.listdir("messages")
 
 
-list_of_users = index.main()[0]
-index_data = index.main()[1]
+list_of_users = index.find_index()[0]
+index_data = index.find_index()[1]
 
 for i in list_of_users:
     print(i)

@@ -1,6 +1,6 @@
 import json
 
-def main():
+def find_index():
     with open('messages/index.json', 'r') as index_file:
         data = json.load(index_file)
 
