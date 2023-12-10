@@ -68,33 +68,34 @@ def attachments_with_user():
 
         if continue_down == "Y":
             os.mkdir(f'{attach_user_input}_attachments')
-            image_name_count = 0
-            for url in urls:
-                filename = f'image_{image_name_count}.png'
+            for url_index, url in enumerate(urls):
+                filename = f'image_{url_index}.png'
                 res = requests.get(url, stream=True)
                 if res.status_code == 200:
                     with open(f"{attach_user_input}_attachments/{filename}", 'wb') as file:
                         shutil.copyfileobj(res.raw, file)
-                image_name_count = image_name_count + 1
+
         elif continue_down == "N":
             attachments_with_user()
         else:
             attachments_with_user()
 
 
-while True:
-    try:
-        user_input = int(input(
-            "1.Messages with specific user\n2.Attachments with specific user (Open as CSV of links)\n3.Attachments with specific user(Download to folder)\n4.Exit\n>"))
-        break
-    except ValueError:
-        print("Enter 1,2,3,4 from the above choices")
+if __name__ == '__main__':
 
-if user_input == 1:
-    message_with_user()
+    while True:
+        try:
+            user_input = int(input(
+                "1.Messages with specific user\n2.Attachments with specific user (Open as CSV of links)\n3.Attachments with specific user(Download to folder)\n4.Exit\n>"))
+            break
+        except ValueError:
+            print("Enter 1,2,3,4 from the above choices")
 
-elif user_input == 2 or user_input == 3:
-    attachments_with_user()
+    if user_input == 1:
+        message_with_user()
 
-elif user_input == 4:
-    exit()
+    elif user_input == 2 or user_input == 3:
+        attachments_with_user()
+
+    elif user_input == 4:
+        exit()
