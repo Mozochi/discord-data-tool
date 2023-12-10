@@ -7,6 +7,7 @@ Below is an example of the folder you will receive from discord:
 Move **messages** into the same path as **main.py**
 ## Requirments
 - [pandas](https://pypi.org/project/pandas/)
+- [requests](https://pypi.org/project/requests/)
 ## Authors
 
 - [@Mozochi](https://github.com/Mozochi)
